@@ -4,7 +4,7 @@
       Это пустая страница(. Чтобы перейти на страницу нажми на ссылку
     </h1>
     <nuxt-link to="/profile/orders" class="main__link">
-      тык
+      Cсылка
     </nuxt-link>
   </div>
 </template>
