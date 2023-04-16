@@ -1,6 +1,6 @@
 <template>
-  <div class="orders container">
-    <div class="orders__wrapper">
+  <div class="profile container">
+    <div class="profile__wrapper">
       <orders-nav/>
       <nuxt-page/>
     </div>
@@ -14,7 +14,7 @@ import ListingComponent from '@/components/OrdersPage/listing/ListingComponent.v
 import OrdersNav from '@/components/OrdersPage/OrdersNav.vue'
 
 export default {
-  name: 'orders',
+  name: 'profile',
   components: {
     OrdersNav,
     ListingComponent,
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.orders {
+.profile {
   display: flex;
   justify-content: space-between;
   gap: 0 40px;

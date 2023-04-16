@@ -1,5 +1,5 @@
 <template>
-  <div class="orders container">
+  <div class="orders">
     <div class="orders__wrapper">
       <listing-component/>
     </div>

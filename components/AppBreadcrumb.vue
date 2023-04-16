@@ -35,12 +35,17 @@ export default {
 
 <style lang="scss" scoped>
 .breadcrumb {
+  margin-top: 20px;
   display: flex;
   gap: 0 7px;
   align-items: center;
 
   &__from {
     color: $grey-color;
+    font-size: 14px
+  }
+
+  &__to {
     font-size: 14px
   }
 }

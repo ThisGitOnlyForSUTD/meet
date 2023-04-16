@@ -32,7 +32,7 @@ export default {
     display: flex;
     justify-content: start;
     gap: 0 8px;
-    margin-top: 20px;
+    margin: 20px 0;
 
     &__link {
       background: #F8F8F8;
