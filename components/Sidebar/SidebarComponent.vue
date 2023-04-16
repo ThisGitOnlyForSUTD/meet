@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <ul class="sidebar__aside">
-      <li class="sidebar__banner" v-for="(item, index) in bannersStore.banners.api" :key="item.id">
+      <li class="sidebar__banner" v-for="(item, index) in bannersStore.banners" :key="item.id">
         <aside-size :banner="item"></aside-size>
       </li>
     </ul>
