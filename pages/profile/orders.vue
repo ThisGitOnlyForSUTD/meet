@@ -3,20 +3,17 @@
     <div class="orders__wrapper">
       <listing-component/>
     </div>
-    <sidebar-component/>
   </div>
 </template>
 
 <script>
-import SidebarComponent from '@/components/Sidebar/SidebarComponent.vue'
 import ListingComponent from '@/components/OrdersPage/listing/ListingComponent.vue'
 
 
 export default {
   name: 'orders',
   components: {
-    ListingComponent,
-    SidebarComponent
+    ListingComponent
   },
 };
 </script>

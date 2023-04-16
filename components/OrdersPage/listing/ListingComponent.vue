@@ -1,7 +1,7 @@
 <template>
   <div class="listing">
     <app-breadcrumb class="listing__breadcrumb" :title="'Узнать статус заказа'" />
-    <orders-nav/>
+
     <h3 class="listing__title" @click="filterProducts">
       Все заказы
     </h3>
@@ -15,13 +15,10 @@
 <script>
 import { useOrdersStore } from '@/stores/OrdersStore'
 import OrdersCard from '@/components/OrdersPage/OrdersCard/OrdersCard.vue'
-import OrdersNav from '@/components/OrdersPage/OrdersNav'
 import OrdersFilter from '@/components/OrdersPage/OrdersFilter'
 import AppBreadcrumb from '@/components/AppBreadcrumb.vue';
-import { ref } from 'vue'
   export default {
     components: {
-      OrdersNav,
       OrdersFilter,
       OrdersCard,
       AppBreadcrumb

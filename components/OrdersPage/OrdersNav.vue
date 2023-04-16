@@ -14,9 +14,9 @@ export default {
   setup () {
     return {
       tabList: [
-        {link: '/', text: 'Мой профиль'},
+        {link: '/profile/user', text: 'Мой профиль'},
         {link: '/profile/orders', text: 'Заказы'},
-        {link: '/', text: 'Избранное'}
+        {link: '/profile/favortite', text: 'Избранное'}
       ]
     }
   }
