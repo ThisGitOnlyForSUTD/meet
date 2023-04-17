@@ -17,7 +17,8 @@ export default {
   props: {
     city: {
       type: String,
-      default: 'Москва и область'
+      default: 'Москва и область',
+      required: false
     }
   }
 };

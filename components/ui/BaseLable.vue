@@ -15,7 +15,8 @@ export default {
   props: {
     paid: {
       type: Boolean,
-      default: true
+      default: true,
+      required: false
     }
   }
 

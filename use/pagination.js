@@ -2,7 +2,7 @@ import {computed, ref, watch} from "vue";
 
 export function pagination(arr, step = 2) {
   const getEndPosition = (start) => {
-    return arr.value.length - 1 >= start + step
+    return arr.value.length >= start + step
       ? start + step
       : arr.value.length
   }
@@ -13,21 +13,10 @@ export function pagination(arr, step = 2) {
     return arr.value.slice(start , getEndPosition(start))
   }
 
-  const loadItems = (isReloade) => {
-    if (isReloade) {
-      const start = 0
-      list.value = getChunk(start)
-      return
-    }
+  const loadItems = () => {
+    console.log('add items')
     const start = list.value.length
     list.value = list.value.concat(getChunk(start))
-  }
-
-  const addItemInList = (data) => {
-    if (canLoadMore.value) {
-      list.value.splice(list.value.length - 1, 1)
-    }
-    list.value.unshift(data)
   }
 
   watch(arr,() => {
@@ -36,7 +25,6 @@ export function pagination(arr, step = 2) {
 
   return {
     list,
-    addItemInList,
     canLoadMore,
     loadItems,
   }

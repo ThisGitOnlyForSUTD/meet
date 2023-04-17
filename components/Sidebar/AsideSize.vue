@@ -27,14 +27,8 @@ export default {
   props: {
     banner: {
       type: Object,
-      default: (()=>{})
-    }
-  },
-  setup () {
-    return {
-      cssProps: {
-        backgroundImage: '../../static/img/saleBg.svg'
-      }
+      default: (()=>{}),
+      required: true
     }
   }
 }

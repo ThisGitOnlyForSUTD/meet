@@ -43,7 +43,7 @@ export default {
   setup() {
     const showModel = ref(false)
     const changeStyle = computed(() => {
-      return {'--colorLine': '2px dashed #9A9FA5', '--colorRing': '0 0 0 4px #9A9FA5 inset !important;'}
+      return {'--colorLine': '2px dashed #9A9FA5', '--colorRing': '0 0 0 4px #9A9FA5 inset !important'}
     })
     return {
       showModel,

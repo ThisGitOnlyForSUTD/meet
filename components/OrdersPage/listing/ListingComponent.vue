@@ -1,32 +1,72 @@
 <template>
   <div class="listing">
     <app-breadcrumb class="listing__breadcrumb" :title="'Узнать статус заказа'" />
-
-    <h3 class="listing__title" @click="filterProducts">
+    <h3 class="listing__title">
       Все заказы
     </h3>
     <orders-filter :activeTab="ordersStore.activeTab"/>
-    <section class="listing__list">
-      <orders-card v-for="(item, index) in ordersStore.ORDER_PRODUCTS" :key="item.id" :product="item"/>
+    <section class="listing__list" ref="scrollComponent">
+      <orders-card v-for="(item) in sortProducts" :key="item.id" :product="item"/>
     </section>
   </div>
 </template>
-
 <script>
 import { useOrdersStore } from '@/stores/OrdersStore'
 import OrdersCard from '@/components/OrdersPage/OrdersCard/OrdersCard.vue'
 import OrdersFilter from '@/components/OrdersPage/OrdersFilter'
 import AppBreadcrumb from '@/components/AppBreadcrumb.vue';
+import { computed } from 'vue';
+import { pagination } from '@/use/pagination'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { throttle } from "lodash";
   export default {
     components: {
       OrdersFilter,
       OrdersCard,
-      AppBreadcrumb
+      AppBreadcrumb,
+      onMounted
     },
     setup() {
     const ordersStore = useOrdersStore()
+    const products = computed(()=> {
+        return ordersStore.ORDER_PRODUCTS
+    })
+    const sortProducts = computed(()=> {
+        if ( ordersStore.activeTab == 1) {
+          return list.value.filter(el => el.paid == true)
+        } 
+        else if (ordersStore.activeTab == 2 ) {
+          return list.value.filter(el => el.paid == false)
+        } 
+        else {
+          return list.value
+        }
+    })
+    const { list, loadItems, canLoadMore } = pagination(products)
+    const scrollComponent = ref(null)
+
+    const handleScroll = () => {
+      const element = scrollComponent.value
+      if ( element.getBoundingClientRect().bottom < window.innerHeight) {
+        loadItems(true)
+      }
+    } 
+
+    const throttledScrollHandler = throttle(handleScroll, 800);
+    onMounted(() => {
+      loadItems(true)
+      window.addEventListener("scroll", throttledScrollHandler)
+    })
+    onUnmounted(() => {
+      window.removeEventListener("scroll", throttledScrollHandler)
+    })
     return {
       ordersStore,
+      list,
+      loadItems,
+      canLoadMore,
+      sortProducts,
+      scrollComponent
     }
   }
 

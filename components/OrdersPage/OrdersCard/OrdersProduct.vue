@@ -76,7 +76,7 @@ export default {
     &__img {
       position: relative;
       display: block;
-
+      max-width: 140px;
       @media (max-width: 517px) {
         max-width: 100px;
       }

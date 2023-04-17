@@ -57,7 +57,8 @@ export default {
   props: {
     product: {
       type: Object,
-      default: (()=>{})
+      default: (()=>{}),
+      required: true
     }
   }
 };
